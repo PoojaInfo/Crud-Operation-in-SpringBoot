@@ -44,8 +44,7 @@ public class StudentControlller
 	public ResponseEntity<String> updata(@PathVariable("studentRollno") int id , @RequestBody Student s)
 	{
 					ssi.update(s);
-					
-					
+		
 					return new ResponseEntity<String>("Put Data in student",HttpStatus.UPGRADE_REQUIRED);
 	}
 	

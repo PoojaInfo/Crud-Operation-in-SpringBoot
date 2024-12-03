@@ -19,4 +19,10 @@ public class StudentServiceImpl implements StudentServicesI
 		sr.save(student);
 	}
 
+	@Override
+	public void deleteData(int id) {
+		
+		sr.deleteById(id);
+	}
+
 }

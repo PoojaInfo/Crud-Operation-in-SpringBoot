@@ -6,4 +6,6 @@ public interface StudentServicesI {
 
 	public void saveData(Student student);
 
+	public void deleteData(int id);
+
 }

@@ -25,4 +25,11 @@ public class StudentServiceImpl implements StudentServicesI
 		sr.deleteById(id);
 	}
 
+	@Override
+	public void update(Student s) {
+			
+		sr.save(s);
+		
+	}
+
 }

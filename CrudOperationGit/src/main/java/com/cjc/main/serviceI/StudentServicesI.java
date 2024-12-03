@@ -8,4 +8,6 @@ public interface StudentServicesI {
 
 	public void deleteData(int id);
 
+	public void update(Student s);
+
 }

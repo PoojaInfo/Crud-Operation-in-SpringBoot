@@ -41,6 +41,7 @@ public class StudentControlller
 	}
 	
 	@PutMapping("/putData{studentRollno}")
+	
 	public ResponseEntity<String> updata(@PathVariable("studentRollno") int id , @RequestBody Student s)
 	{
 					ssi.update(s);

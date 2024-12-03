@@ -1,14 +1,21 @@
 package com.cjc.main.controller;
 
 
+import java.util.List;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+
+
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,6 +32,15 @@ public class StudentControlller
 	
 	private static final Logger LOG=LoggerFactory.getLogger(StudentControlller.class);
 	
+	@GetMapping("/getAllData")
+   public ResponseEntity<List<Student>> ongetData()
+ {
+		List<Student> al=ssi.getstudent();
+	return new ResponseEntity<List<Student>>(al,HttpStatus.OK);
+	 
+ }
+	
+	
 	@PostMapping("/postData")
 	public ResponseEntity<Student> onsaveData(@RequestBody Student student)
 	{
@@ -39,6 +55,7 @@ public class StudentControlller
 					ssi.deleteData(id);
 					return new ResponseEntity<String>("Id delete",HttpStatus.OK);
 	}
+
 	
 	@PutMapping("/putData{studentRollno}")
 	public ResponseEntity<String> updata(@PathVariable("studentRollno") int id , @RequestBody Student s)
@@ -48,4 +65,8 @@ public class StudentControlller
 					return new ResponseEntity<String>("Put Data in student",HttpStatus.UPGRADE_REQUIRED);
 	}
 	
+	
+
+
+
 }

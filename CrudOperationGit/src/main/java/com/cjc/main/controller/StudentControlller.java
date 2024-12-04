@@ -64,8 +64,17 @@ public class StudentControlller
 		
 					return new ResponseEntity<String>("Put Data in student",HttpStatus.UPGRADE_REQUIRED);
 	}
-	
-	
+	//specific student
+	@GetMapping("/getStudent/{studentRollno}")
+	public ResponseEntity<Student> getStudent(@PathVariable("studentRollno") int id) {
+	    Student student = ssi.getStudentById(id); 
+	    if (student != null) {
+	        return new ResponseEntity<Student>("specific user data", HttpStatus.OK);
+	    } else {
+	        return new ResponseEntity<Student>(HttpStatus.NOT_FOUND); 
+	    }
+	}
+
 
 
 
